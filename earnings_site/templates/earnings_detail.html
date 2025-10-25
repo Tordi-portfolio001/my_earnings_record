@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}{{ record.job_name }}{% endblock %}
+
+{% block content %}
+<div class="card p-4">
+  <h2 class="fw-bold">{{ record.job_name }}</h2>
+  <p><strong>Invoice Number:</strong> {{ record.invoice_number }}</p>
+  <p><strong>Description:</strong><br>{{ record.description }}</p>
+
+  <p class="fw-bold text-info fs-4">${{ record.amount }}</p>
+  <p><strong>Date:</strong> {{ record.date }}</p>
+
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <img src="{{ record.image1.url }}" class="img-fluid rounded">
+    </div>
+    {% if record.image2 %}
+    <div class="col-md-6">
+      <img src="{{ record.image2.url }}" class="img-fluid rounded">
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
